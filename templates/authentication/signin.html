@@ -1,0 +1,94 @@
+<span style="font-family: verdana, geneva, sans-serif;"><!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <title>Login | By Code Info</title>
+        <style>
+            body {
+                background-color: #344a72;
+                font-family: "Roboto", sans-serif;
+                }
+
+
+                .login-box {
+                width: 360px;
+                height: 280px;
+                margin: auto;
+                margin-top: 170px;
+                border-radius: 3px;
+                background-color: white;
+                }
+
+                h1 {
+                text-align: center;
+                padding-top: 15px;
+                }
+
+                form {
+                width: 300px;
+                margin-left: 20px;
+                }
+
+                form label {
+                display: flex;
+                margin-top: 20px;
+                font-size: 18px;
+                }
+
+                form input {
+                width: 100%;
+                padding: 7px;
+                border: none;
+                border: 1px solid gray;
+                border-radius: 6px;
+                outline: none;
+                }
+
+                input[type="button"] {
+                width: 320px;
+                height: 35px;
+                margin-top: 200px;
+                border: none;
+                background-color: #49c1a2;
+                color: white;
+                font-size: 18px;
+                }
+                #pp{
+                    margin-top: 10px;
+                    padding: 10px;
+                    cursor: pointer;
+                    border-radius: 20px;
+                }
+
+</style>
+      </head>
+      <body>
+
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>MESSAGE:</strong>{{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden = "true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+
+        <div class="login-box">
+          <h1>Login</h1>
+          <form action="/signin" method="post">
+            {% csrf_token %}
+            
+            <label for=" "> Username </label>
+            <input type="text" id="username" name="username" placeholder="Enter user name" />
+            <br>
+
+            <label for="" > Password </label>
+            <input type="password" id="pass1" name="pass1" placeholder="Enter your password" />
+            <br>
+            <center>
+            <button type="submit" id="pp"> Sign In</button>
+        </center>
+          </form>
+        </div>
+       
+      </body>
+    </html></span>
